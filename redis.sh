@@ -22,4 +22,4 @@ status_check $?
 
 print_head "Start Redis"
 systemctl restart redis &>>${log_file}
-status_check $?
+status_check $
