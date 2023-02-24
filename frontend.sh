@@ -15,9 +15,11 @@ status_check $?
 print_head "Extracting Downloaded Frontend"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>>${log_file}
+status_check $
+
+print_head "Copying Nginx Config for RoboShop"
+cp ${code_dir}/configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf &>>${log_file}
 status_check $?
-
-
 
 print_head "Enabling nginx"
 systemctl enable nginx &>>${log_file}
